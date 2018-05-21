@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>垃圾中的小钻石</title>
+  
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2018-05-21T07:44:28.000Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>icewong</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Lua--基本数据类型</title>
+    <link href="http://yoursite.com/2018/05/21/Lua-%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/"/>
+    <id>http://yoursite.com/2018/05/21/Lua-基本数据类型/</id>
+    <published>2018-05-21T07:44:28.000Z</published>
+    <updated>2018-05-21T07:44:28.000Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>C++学习（一）Static 和Const</title>
+    <link href="http://yoursite.com/2018/03/27/C-%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89Static-%E5%92%8CConst/"/>
+    <id>http://yoursite.com/2018/03/27/C-学习（一）Static-和Const/</id>
+    <published>2018-03-27T14:19:26.000Z</published>
+    <updated>2018-03-27T15:24:42.000Z</updated>
+    
+    <content type="html"><![CDATA[<pre><code>1 存储空间的能否被释放  const  修饰的常量在超出作用域后其存储空间会被释放；  static 定义的静态常量在函数执行后不会释放其存储空间。2 static表示静态的。Class的静态成员函数、静态的成员变量是和Class相关的，但不是和该Class的具体某个对象相关的。即便没有具体的对象，也能够调用该Class的静态成员函数和静态成员变量。一般来说，Class的静态成员函数几乎就是一个全局函数，只不过它的作用域局限于包含它的文件中。3 在C++中，static静态成员变量不能在类内部初始化。在累的内部只是声明，定义必须在类定义体的外部，通常在类的实现文件中初始化。  const成员变量也不能在类定义处初始化，只能通过构造函数的初始化列表</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;pre&gt;&lt;code&gt;1 存储空间的能否被释放
+  const  修饰的常量在超出作用域后其存储空间会被释放；
+  static 定义的静态常量在函数执行后不会释放其存储空间。
+
+2 static表示静态的。Class的静态成员函数、静态的成员变量是和Class相关的，但不是和该
+      
+    
+    </summary>
+    
+      <category term="C++学习" scheme="http://yoursite.com/categories/C-%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="C++" scheme="http://yoursite.com/tags/C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>iOS LaunchImage</title>
+    <link href="http://yoursite.com/2018/03/12/iOS-LaunchImage/"/>
+    <id>http://yoursite.com/2018/03/12/iOS-LaunchImage/</id>
+    <published>2018-03-12T03:12:03.000Z</published>
+    <updated>2018-03-12T03:16:26.000Z</updated>
+    
+    <content type="html"><![CDATA[<pre><code>说起来汗颜，竟然不记得尺寸了！iPhone Portrait iOS X-Retina        （1125×2436） @3xiPhone Portrait iOS 8-Retina HD 5.5 （1242×2208） @3xiPhone Portrait iOS 8-Retina HD 4.7 （750×1334）  @2xiPhone Portrait iOS 7,8-2x           （640×960）  @2xiPhone Portrait iOS 7,8-Retina 4    （640×1136）  @2xiPhone Portrait iOS 5,6-1x            （320×480） @1xiPhone Portrait iOS 5,6-2x            （640×960） @2xiPhone Portrait iOS 5,6-Retina4      （640×1136） @2x</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;pre&gt;&lt;code&gt;说起来汗颜，竟然不记得尺寸了！
+iPhone Portrait iOS X-Retina        （1125×2436） @3x
+iPhone Portrait iOS 8-Retina HD 5.5 （1242×2208） @3x
+iPhone Po
+      
+    
+    </summary>
+    
+      <category term="iOS开发" scheme="http://yoursite.com/categories/iOS%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="iOS" scheme="http://yoursite.com/tags/iOS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>iOS知识点温习（2）</title>
+    <link href="http://yoursite.com/2018/03/08/iOS%E7%9F%A5%E8%AF%86%E7%82%B9%E6%B8%A9%E4%B9%A0%EF%BC%882%EF%BC%89/"/>
+    <id>http://yoursite.com/2018/03/08/iOS知识点温习（2）/</id>
+    <published>2018-03-08T14:34:17.000Z</published>
+    <updated>2018-03-09T01:50:34.000Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+      <category term="iOS" scheme="http://yoursite.com/tags/iOS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>不要抱怨，努力前行</title>
+    <link href="http://yoursite.com/2018/03/07/%E4%B8%8D%E8%A6%81%E6%8A%B1%E6%80%A8%EF%BC%8C%E5%8A%AA%E5%8A%9B%E5%89%8D%E8%A1%8C/"/>
+    <id>http://yoursite.com/2018/03/07/不要抱怨，努力前行/</id>
+    <published>2018-03-07T02:54:14.000Z</published>
+    <updated>2018-03-07T09:21:39.000Z</updated>
+    
+    <content type="html"><![CDATA[<pre><code>不要让抱怨再成为你前行的阻碍，放下这些抱怨，或许能加快前行的脚步。</code></pre><hr>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;pre&gt;&lt;code&gt;不要让抱怨再成为你前行的阻碍，放下这些抱怨，或许能加快前行的脚步。
+&lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;
+
+      
+    
+    </summary>
+    
+      <category term="闲谈" scheme="http://yoursite.com/categories/%E9%97%B2%E8%B0%88/"/>
+    
+    
+      <category term="杂文" scheme="http://yoursite.com/tags/%E6%9D%82%E6%96%87/"/>
+    
+      <category term="情感" scheme="http://yoursite.com/tags/%E6%83%85%E6%84%9F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>iOS知识点温习（1）</title>
+    <link href="http://yoursite.com/2018/03/07/hello-world/"/>
+    <id>http://yoursite.com/2018/03/07/hello-world/</id>
+    <published>2018-03-07T01:34:12.000Z</published>
+    <updated>2018-03-08T01:23:51.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>Q 1：Application 在执行main()函数之前，都做了什么？(之前从没考虑过此问题，在刷面试题的时候，发现很多人回答，就学习一下。)<br>Answer:  dyld: (the dynamic link editor)动态链接器<br>               ImageLoader: 用于辅助加载特定可执行文件格式的类，程序中对应实例可简称为image(如程序可执行文件，Framework库，bundle文件)<br>               Step 1:读取APP的可执行文件(Mach-o文件),获取dyld的路径；<br>               Step 2:开始加载dyld文件，初始化运行环境、开启缓存策略、加载程序相关依赖库；<br>               Step 3:交给ImageLoader读取image,包括各种资源（类、符号、protocol<br>               、Selector、IMP）；<br>               Step 4:runTime向dyld绑定了callback，当Image加载到内存后，dyld就会通知runTime进行处理<br>               Step 5:rumTime 调用map-images做解析处理<br>               Step 6:load-images调用call_load_methods方法，遍历所有加载进来的Class,按照继承层次依次调用Class的 load 和其他category的load方法<br>               Step 7:所有资源都已经被加载到内存中了<br>               Step 8:dyld调用了真正的main函数<br><a id="more"></a></p><p>Q 2：weak的实现原理是什么？</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Q 1：Application 在执行main()函数之前，都做了什么？(之前从没考虑过此问题，在刷面试题的时候，发现很多人回答，就学习一下。)&lt;br&gt;Answer:  dyld: (the dynamic link editor)动态链接器&lt;br&gt;               ImageLoader: 用于辅助加载特定可执行文件格式的类，程序中对应实例可简称为image(如程序可执行文件，Framework库，bundle文件)&lt;br&gt;               Step 1:读取APP的可执行文件(Mach-o文件),获取dyld的路径；&lt;br&gt;               Step 2:开始加载dyld文件，初始化运行环境、开启缓存策略、加载程序相关依赖库；&lt;br&gt;               Step 3:交给ImageLoader读取image,包括各种资源（类、符号、protocol&lt;br&gt;               、Selector、IMP）；&lt;br&gt;               Step 4:runTime向dyld绑定了callback，当Image加载到内存后，dyld就会通知runTime进行处理&lt;br&gt;               Step 5:rumTime 调用map-images做解析处理&lt;br&gt;               Step 6:load-images调用call_load_methods方法，遍历所有加载进来的Class,按照继承层次依次调用Class的 load 和其他category的load方法&lt;br&gt;               Step 7:所有资源都已经被加载到内存中了&lt;br&gt;               Step 8:dyld调用了真正的main函数&lt;br&gt;
+    
+    </summary>
+    
+      <category term="iOS开发" scheme="http://yoursite.com/categories/iOS%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="iOS" scheme="http://yoursite.com/tags/iOS/"/>
+    
+  </entry>
+  
+</feed>
