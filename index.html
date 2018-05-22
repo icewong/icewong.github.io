@@ -271,6 +271,212 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/22/Lua-函数/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="icewong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="垃圾中的小钻石">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/05/22/Lua-函数/" itemprop="url">Lua--函数</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-22T09:42:18+08:00">
+                2018-05-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/脚本学习/" itemprop="url" rel="index">
+                    <span itemprop="name">脚本学习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  458
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  2
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>  Lua函数定义格式：</p>
+<pre><code>  optional_function_scope function function_name( argument1, argument2, argument3..., argumentn)
+  function_body
+  return result_params_comma_separated
+  end
+说明：
+1）optional_function_scope: 该参数是可选的制定函数是全局函数还是局部函数，未设置该参数默认为全局函数，如果你需要设置函数为局部函数需要使用关键字 local
+2) function_name: 指定函数名称
+3) argument1, argument2, argument3..., argumentn: 函数参数，多个参数以逗号隔开，函数也可以不带参数
+4) function_body: 函数体，函数中需要执行的代码语句块。
+5) result_params_comma_separated: 函数返回值，Lua语言函数可以返回多个值，每个值以逗号隔开。
+</code></pre><p>Lua 中我们可以将函数作为参数传递给函数</p>
+<p>多返回值<br>   Lua函数可以返回多个结果值，比如string.find，其返回匹配串”开始和结束的下标”（如果不存在匹配串返回nil）。</p>
+<pre><code>eg:
+&gt; s, e = string.find(&quot;www.runoob.com&quot;, &quot;runoob&quot;)
+&gt; print(s, e)
+5    10
+</code></pre><p>可变参数<br>   Lua 函数可以接受可变数目的参数，和 C 语言类似，在函数参数列表中使用三点 … 表示函数有可变的参数。</p>
+<p>  通常在遍历变长参数的时候只需要使用 {…}，然而变长参数可能会包含一些 nil，那么就可以用 select 函数来访问变长参数了：select(‘#’, …) 或者 select(n, …)<br>select(‘#’, …) 返回可变参数的长度<br>select(n, …) 用于访问 n 到 select(‘#’,…) 的参数<br>调用select时，必须传入一个固定实参selector(选择开关)和一系列变长参数。如果selector为数字n,那么select返回它的第n个可变实参，否则只能为字符串”#”,这样select会返回变长参数的总数</p>
+<pre><code>eg：
+do
+function foo(...)
+for i = 1, select(&apos;#&apos;, ...) do  --&gt;获取参数总数
+local arg = select(i, ...); --&gt;读取参数
+print(&quot;arg&quot;, arg);
+end
+end
+
+foo(1, 2, 3, 4);
+end
+</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+    
+
+    <div>
+        
+    </div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/22/Lua-循环和流程控制/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1947,190 +2153,13 @@ iPhone Portrait iOS 5,6-Retina4      （640×1136） @2x
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/07/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="icewong">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="垃圾中的小钻石">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/03/07/hello-world/" itemprop="url">iOS知识点温习（1）</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-07T09:34:12+08:00">
-                2018-03-07
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/iOS开发/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS开发</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  284
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>Q 1：Application 在执行main()函数之前，都做了什么？(之前从没考虑过此问题，在刷面试题的时候，发现很多人回答，就学习一下。)<br>Answer:  dyld: (the dynamic link editor)动态链接器<br>               ImageLoader: 用于辅助加载特定可执行文件格式的类，程序中对应实例可简称为image(如程序可执行文件，Framework库，bundle文件)<br>               Step 1:读取APP的可执行文件(Mach-o文件),获取dyld的路径；<br>               Step 2:开始加载dyld文件，初始化运行环境、开启缓存策略、加载程序相关依赖库；<br>               Step 3:交给ImageLoader读取image,包括各种资源（类、符号、protocol<br>               、Selector、IMP）；<br>               Step 4:runTime向dyld绑定了callback，当Image加载到内存后，dyld就会通知runTime进行处理<br>               Step 5:rumTime 调用map-images做解析处理<br>               Step 6:load-images调用call_load_methods方法，遍历所有加载进来的Class,按照继承层次依次调用Class的 load 和其他category的load方法<br>               Step 7:所有资源都已经被加载到内存中了<br>               Step 8:dyld调用了真正的main函数<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/03/07/hello-world/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-    
-
-    <div>
-        
-    </div>
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
 
 
           </div>
@@ -2174,7 +2203,7 @@ iPhone Portrait iOS 5,6-Retina4      （640×1136） @2x
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2254,13 +2283,13 @@ iPhone Portrait iOS 5,6-Retina4      （640×1136） @2x
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">2.6k</span>
+    <span title="Site words total count">3.1k</span>
   
 </div>
 
 <div class="theme-info">
 <div class="powered-by"></div>
-<span class="post-count">博客全站共2.6k字</span>
+<span class="post-count">博客全站共3.1k字</span>
 </div>
 
         

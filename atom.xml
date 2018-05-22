@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-05-22T01:26:03.000Z</updated>
+  <updated>2018-05-22T02:02:09.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,11 +17,38 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Lua--函数</title>
+    <link href="http://yoursite.com/2018/05/22/Lua-%E5%87%BD%E6%95%B0/"/>
+    <id>http://yoursite.com/2018/05/22/Lua-函数/</id>
+    <published>2018-05-22T01:42:18.000Z</published>
+    <updated>2018-05-22T02:02:09.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>  Lua函数定义格式：</p><pre><code>  optional_function_scope function function_name( argument1, argument2, argument3..., argumentn)  function_body  return result_params_comma_separated  end说明：1）optional_function_scope: 该参数是可选的制定函数是全局函数还是局部函数，未设置该参数默认为全局函数，如果你需要设置函数为局部函数需要使用关键字 local2) function_name: 指定函数名称3) argument1, argument2, argument3..., argumentn: 函数参数，多个参数以逗号隔开，函数也可以不带参数4) function_body: 函数体，函数中需要执行的代码语句块。5) result_params_comma_separated: 函数返回值，Lua语言函数可以返回多个值，每个值以逗号隔开。</code></pre><p>Lua 中我们可以将函数作为参数传递给函数</p><p>多返回值<br>   Lua函数可以返回多个结果值，比如string.find，其返回匹配串”开始和结束的下标”（如果不存在匹配串返回nil）。</p><pre><code>eg:&gt; s, e = string.find(&quot;www.runoob.com&quot;, &quot;runoob&quot;)&gt; print(s, e)5    10</code></pre><p>可变参数<br>   Lua 函数可以接受可变数目的参数，和 C 语言类似，在函数参数列表中使用三点 … 表示函数有可变的参数。</p><p>  通常在遍历变长参数的时候只需要使用 {…}，然而变长参数可能会包含一些 nil，那么就可以用 select 函数来访问变长参数了：select(‘#’, …) 或者 select(n, …)<br>select(‘#’, …) 返回可变参数的长度<br>select(n, …) 用于访问 n 到 select(‘#’,…) 的参数<br>调用select时，必须传入一个固定实参selector(选择开关)和一系列变长参数。如果selector为数字n,那么select返回它的第n个可变实参，否则只能为字符串”#”,这样select会返回变长参数的总数</p><pre><code>eg：dofunction foo(...)for i = 1, select(&apos;#&apos;, ...) do  --&gt;获取参数总数local arg = select(i, ...); --&gt;读取参数print(&quot;arg&quot;, arg);endendfoo(1, 2, 3, 4);end</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;  Lua函数定义格式：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;  optional_function_scope function function_name( argument1, argument2, argument3..., argumentn)
+  function_b
+      
+    
+    </summary>
+    
+      <category term="脚本学习" scheme="http://yoursite.com/categories/%E8%84%9A%E6%9C%AC%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="Lua" scheme="http://yoursite.com/tags/Lua/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Lua--循环和流程控制</title>
     <link href="http://yoursite.com/2018/05/22/Lua-%E5%BE%AA%E7%8E%AF%E5%92%8C%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6/"/>
     <id>http://yoursite.com/2018/05/22/Lua-循环和流程控制/</id>
     <published>2018-05-22T01:19:12.000Z</published>
-    <updated>2018-05-22T01:26:03.000Z</updated>
+    <updated>2018-05-22T01:48:20.000Z</updated>
     
     <content type="html"><![CDATA[<p>  Lua语句有以下几种循环处理方式：<br>   1 ）  while循环<br>   2 ）for    循环<br>   3 ）repeat…until<br>   4 ） 循环的嵌套</p><p>  Lua 支持的循环控制语句：<br>     break语句</p><p>  Lua 提供的控制结构语句：<br>    1）if语句<br>    2）if…else 语句<br>    3）if嵌套语句</p>]]></content>
     
