@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="iOS," />
 
 
 
@@ -81,13 +81,18 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="垃圾中的小钻石">
-<meta property="og:url" content="http://yoursite.com/page/2/index.html">
+<meta name="description" content="六大设计原则：     1 单一职能原则             每个类只负责一件事情     2 开闭原则             对修改关闭，对扩展开放     3 接口隔离原则           使用多个专门的协议，而不是一个庞大臃肿的协议，协议中的方法应该尽量少     4 依赖设置原则            抽象不应该依赖于具体实现，具体实现可以依赖于抽象     5 里氏替换原则">
+<meta name="keywords" content="iOS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS开发中的设计原则和常用的设计模式（一）">
+<meta property="og:url" content="http://yoursite.com/2018/05/23/iOS开发中的设计原则和常用的设计模式/index.html">
 <meta property="og:site_name" content="垃圾中的小钻石">
+<meta property="og:description" content="六大设计原则：     1 单一职能原则             每个类只负责一件事情     2 开闭原则             对修改关闭，对扩展开放     3 接口隔离原则           使用多个专门的协议，而不是一个庞大臃肿的协议，协议中的方法应该尽量少     4 依赖设置原则            抽象不应该依赖于具体实现，具体实现可以依赖于抽象     5 里氏替换原则">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-05-23T01:51:59.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="垃圾中的小钻石">
+<meta name="twitter:title" content="iOS开发中的设计原则和常用的设计模式（一）">
+<meta name="twitter:description" content="六大设计原则：     1 单一职能原则             每个类只负责一件事情     2 开闭原则             对修改关闭，对扩展开放     3 接口隔离原则           使用多个专门的协议，而不是一个庞大臃肿的协议，协议中的方法应该尽量少     4 依赖设置原则            抽象不应该依赖于具体实现，具体实现可以依赖于抽象     5 里氏替换原则">
 
 
 
@@ -117,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/page/2/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/05/23/iOS开发中的设计原则和常用的设计模式/"/>
 
 
 
 
 
-  <title>垃圾中的小钻石</title>
+  <title>iOS开发中的设计原则和常用的设计模式（一） | 垃圾中的小钻石</title>
   
 
 
@@ -142,8 +147,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
    <a href="https://github.com/icewong" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -256,9 +260,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -271,7 +275,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/07/不要抱怨，努力前行/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/23/iOS开发中的设计原则和常用的设计模式/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="icewong">
@@ -288,9 +292,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/03/07/不要抱怨，努力前行/" itemprop="url">不要抱怨，努力前行</a></h1>
+          <h1 class="post-title" itemprop="name headline">iOS开发中的设计原则和常用的设计模式（一）</h1>
         
 
         <div class="post-meta">
@@ -302,186 +304,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-07T10:54:14+08:00">
-                2018-03-07
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/闲谈/" itemprop="url" rel="index">
-                    <span itemprop="name">闲谈</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  30
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <pre><code>不要让抱怨再成为你前行的阻碍，放下这些抱怨，或许能加快前行的脚步。
-</code></pre><hr>
-
-          
-        
-      
-    </div>
-    
-    
-    
-    
-
-    <div>
-        
-    </div>
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/07/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="icewong">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="垃圾中的小钻石">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/03/07/hello-world/" itemprop="url">iOS知识点温习（1）</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-07T09:34:12+08:00">
-                2018-03-07
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-23T09:01:54+08:00">
+                2018-05-23
               </time>
             
 
@@ -522,6 +346,11 @@
           
 
           
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
 
           
             <div class="post-wordcount">
@@ -534,7 +363,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  284
+                  455
                 </span>
               
 
@@ -550,7 +379,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  2
                 </span>
               
             </div>
@@ -571,16 +400,64 @@
       
 
       
-        
-          <p>Q 1：Application 在执行main()函数之前，都做了什么？(之前从没考虑过此问题，在刷面试题的时候，发现很多人回答，就学习一下。)<br>Answer:  dyld: (the dynamic link editor)动态链接器<br>               ImageLoader: 用于辅助加载特定可执行文件格式的类，程序中对应实例可简称为image(如程序可执行文件，Framework库，bundle文件)<br>               Step 1:读取APP的可执行文件(Mach-o文件),获取dyld的路径；<br>               Step 2:开始加载dyld文件，初始化运行环境、开启缓存策略、加载程序相关依赖库；<br>               Step 3:交给ImageLoader读取image,包括各种资源（类、符号、protocol<br>               、Selector、IMP）；<br>               Step 4:runTime向dyld绑定了callback，当Image加载到内存后，dyld就会通知runTime进行处理<br>               Step 5:rumTime 调用map-images做解析处理<br>               Step 6:load-images调用call_load_methods方法，遍历所有加载进来的Class,按照继承层次依次调用Class的 load 和其他category的load方法<br>               Step 7:所有资源都已经被加载到内存中了<br>               Step 8:dyld调用了真正的main函数<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/03/07/hello-world/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
+        <p>六大设计原则：<br>     1 单一职能原则<br>             每个类只负责一件事情<br>     2 开闭原则<br>             对修改关闭，对扩展开放<br>     3 接口隔离原则<br>           使用多个专门的协议，而不是一个庞大臃肿的协议，协议中的方法应该尽量少<br>     4 依赖设置原则<br>            抽象不应该依赖于具体实现，具体实现可以依赖于抽象<br>     5 里氏替换原则<br>            父类可以被子类无风替换，切原有功能不受任何的影响<br>     6 迪米特法则<br>           一个对象应当对其他对象有尽可能少的了解，目的就是为了 高内聚、低耦合</p>
+<p>常用的设计模式：<br>      1 责任链模式<br>        举一个场景说明：需求发生了变化<br>        原来：Business A  —&gt;   Business B   —&gt;   Business C  —&gt;   完成<br>        现在：Business C  —&gt;   Business B   —&gt;   Business A  —&gt;   完成<br>        责任链模式的核心是：假如有一个处理业务的类Business，那么它的成员中则需要有一个同类型的对象（Business *nextBusiness）作为下一个响应者。</p>
+<pre><code>eg:
+//Business.h
+#import &lt;Foundation/Foundation.h&gt;
+
+@class Business;
+typedef void(^CompletionBlock)(BOOL handled);
+typedef void(^ResultBlock)(Businesst *handler, BOOL handled);
+
+@interface Business : NSObject
+
+// 下一个响应者(响应链构成的关键)
+@property (nonatomic, strong) Business *nextBusiness;
+// 响应者的处理方法
+- (void)handle:(ResultBlock)result;
+
+// 各个业务在该方法当中做实际业务处理
+- (void)handleBusiness:(CompletionBlock)completion;
+@end
+
+//Business.m
+#import &quot;Business.h&quot;
+
+@implementation Business
+
+// 责任链入口方法
+- (void)handle:(ResultBlock)result
+{
+CompletionBlock completion = ^(BOOL handled){
+    // 当前业务处理掉了，上抛结果
+    if (handled) {
+        result(self, handled);
+    }
+    else{
+        // 沿着责任链，指派给下一个业务处理
+        if (self.nextBusiness) {
+            [self.nextBusiness handle:result];
+        }
+        else{
+            // 没有业务处理, 上抛
+            result(nil, NO);
+        }
+    }
+};
+
+// 当前业务进行处理
+[self handleBusiness:completion];
+}
+
+- (void)handleBusiness:(CompletionBlock)completion
+{
+    /*
+    业务逻辑处理
+    如网络请求、本地数据查询等
+    */
+}
+</code></pre>
       
     </div>
     
@@ -589,6 +466,9 @@
     
 
     <div>
+        
+        
+
         
     </div>
     
@@ -599,14 +479,36 @@
 
     <footer class="post-footer">
       
-
+        <div class="post-tags">
+          
+            <a href="/tags/iOS/" rel="tag"># iOS</a>
+          
+        </div>
       
 
       
+      
+      
 
       
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/05/22/Lua-函数/" rel="next" title="Lua--函数">
+                <i class="fa fa-chevron-left"></i> Lua--函数
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
       
-        <div class="post-eof"></div>
+
+      
       
     </footer>
   </div>
@@ -616,14 +518,11 @@
   </article>
 
 
-    
-  </section>
 
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
-  </nav>
-
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -631,6 +530,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -879,6 +782,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 

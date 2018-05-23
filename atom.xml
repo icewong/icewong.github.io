@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-05-22T02:02:09.000Z</updated>
+  <updated>2018-05-23T01:51:59.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,11 +17,36 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>iOS开发中的设计原则和常用的设计模式（一）</title>
+    <link href="http://yoursite.com/2018/05/23/iOS%E5%BC%80%E5%8F%91%E4%B8%AD%E7%9A%84%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99%E5%92%8C%E5%B8%B8%E7%94%A8%E7%9A%84%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    <id>http://yoursite.com/2018/05/23/iOS开发中的设计原则和常用的设计模式/</id>
+    <published>2018-05-23T01:01:54.000Z</published>
+    <updated>2018-05-23T01:51:59.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>六大设计原则：<br>     1 单一职能原则<br>             每个类只负责一件事情<br>     2 开闭原则<br>             对修改关闭，对扩展开放<br>     3 接口隔离原则<br>           使用多个专门的协议，而不是一个庞大臃肿的协议，协议中的方法应该尽量少<br>     4 依赖设置原则<br>            抽象不应该依赖于具体实现，具体实现可以依赖于抽象<br>     5 里氏替换原则<br>            父类可以被子类无风替换，切原有功能不受任何的影响<br>     6 迪米特法则<br>           一个对象应当对其他对象有尽可能少的了解，目的就是为了 高内聚、低耦合</p><p>常用的设计模式：<br>      1 责任链模式<br>        举一个场景说明：需求发生了变化<br>        原来：Business A  —&gt;   Business B   —&gt;   Business C  —&gt;   完成<br>        现在：Business C  —&gt;   Business B   —&gt;   Business A  —&gt;   完成<br>        责任链模式的核心是：假如有一个处理业务的类Business，那么它的成员中则需要有一个同类型的对象（Business *nextBusiness）作为下一个响应者。</p><pre><code>eg://Business.h#import &lt;Foundation/Foundation.h&gt;@class Business;typedef void(^CompletionBlock)(BOOL handled);typedef void(^ResultBlock)(Businesst *handler, BOOL handled);@interface Business : NSObject// 下一个响应者(响应链构成的关键)@property (nonatomic, strong) Business *nextBusiness;// 响应者的处理方法- (void)handle:(ResultBlock)result;// 各个业务在该方法当中做实际业务处理- (void)handleBusiness:(CompletionBlock)completion;@end//Business.m#import &quot;Business.h&quot;@implementation Business// 责任链入口方法- (void)handle:(ResultBlock)result{CompletionBlock completion = ^(BOOL handled){    // 当前业务处理掉了，上抛结果    if (handled) {        result(self, handled);    }    else{        // 沿着责任链，指派给下一个业务处理        if (self.nextBusiness) {            [self.nextBusiness handle:result];        }        else{            // 没有业务处理, 上抛            result(nil, NO);        }    }};// 当前业务进行处理[self handleBusiness:completion];}- (void)handleBusiness:(CompletionBlock)completion{    /*    业务逻辑处理    如网络请求、本地数据查询等    */}</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;六大设计原则：&lt;br&gt;     1 单一职能原则&lt;br&gt;             每个类只负责一件事情&lt;br&gt;     2 开闭原则&lt;br&gt;             对修改关闭，对扩展开放&lt;br&gt;     3 接口隔离原则&lt;br&gt;           使用多个专门的协议，而
+      
+    
+    </summary>
+    
+      <category term="iOS开发" scheme="http://yoursite.com/categories/iOS%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="iOS" scheme="http://yoursite.com/tags/iOS/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Lua--函数</title>
     <link href="http://yoursite.com/2018/05/22/Lua-%E5%87%BD%E6%95%B0/"/>
     <id>http://yoursite.com/2018/05/22/Lua-函数/</id>
     <published>2018-05-22T01:42:18.000Z</published>
-    <updated>2018-05-22T02:02:09.000Z</updated>
+    <updated>2018-05-22T02:44:30.000Z</updated>
     
     <content type="html"><![CDATA[<p>  Lua函数定义格式：</p><pre><code>  optional_function_scope function function_name( argument1, argument2, argument3..., argumentn)  function_body  return result_params_comma_separated  end说明：1）optional_function_scope: 该参数是可选的制定函数是全局函数还是局部函数，未设置该参数默认为全局函数，如果你需要设置函数为局部函数需要使用关键字 local2) function_name: 指定函数名称3) argument1, argument2, argument3..., argumentn: 函数参数，多个参数以逗号隔开，函数也可以不带参数4) function_body: 函数体，函数中需要执行的代码语句块。5) result_params_comma_separated: 函数返回值，Lua语言函数可以返回多个值，每个值以逗号隔开。</code></pre><p>Lua 中我们可以将函数作为参数传递给函数</p><p>多返回值<br>   Lua函数可以返回多个结果值，比如string.find，其返回匹配串”开始和结束的下标”（如果不存在匹配串返回nil）。</p><pre><code>eg:&gt; s, e = string.find(&quot;www.runoob.com&quot;, &quot;runoob&quot;)&gt; print(s, e)5    10</code></pre><p>可变参数<br>   Lua 函数可以接受可变数目的参数，和 C 语言类似，在函数参数列表中使用三点 … 表示函数有可变的参数。</p><p>  通常在遍历变长参数的时候只需要使用 {…}，然而变长参数可能会包含一些 nil，那么就可以用 select 函数来访问变长参数了：select(‘#’, …) 或者 select(n, …)<br>select(‘#’, …) 返回可变参数的长度<br>select(n, …) 用于访问 n 到 select(‘#’,…) 的参数<br>调用select时，必须传入一个固定实参selector(选择开关)和一系列变长参数。如果selector为数字n,那么select返回它的第n个可变实参，否则只能为字符串”#”,这样select会返回变长参数的总数</p><pre><code>eg：dofunction foo(...)for i = 1, select(&apos;#&apos;, ...) do  --&gt;获取参数总数local arg = select(i, ...); --&gt;读取参数print(&quot;arg&quot;, arg);endendfoo(1, 2, 3, 4);end</code></pre>]]></content>
     

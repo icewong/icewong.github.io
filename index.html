@@ -271,6 +271,239 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/23/iOS开发中的设计原则和常用的设计模式/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="icewong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="垃圾中的小钻石">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/05/23/iOS开发中的设计原则和常用的设计模式/" itemprop="url">iOS开发中的设计原则和常用的设计模式（一）</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-23T09:01:54+08:00">
+                2018-05-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS开发/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS开发</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  455
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  2
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>六大设计原则：<br>     1 单一职能原则<br>             每个类只负责一件事情<br>     2 开闭原则<br>             对修改关闭，对扩展开放<br>     3 接口隔离原则<br>           使用多个专门的协议，而不是一个庞大臃肿的协议，协议中的方法应该尽量少<br>     4 依赖设置原则<br>            抽象不应该依赖于具体实现，具体实现可以依赖于抽象<br>     5 里氏替换原则<br>            父类可以被子类无风替换，切原有功能不受任何的影响<br>     6 迪米特法则<br>           一个对象应当对其他对象有尽可能少的了解，目的就是为了 高内聚、低耦合</p>
+<p>常用的设计模式：<br>      1 责任链模式<br>        举一个场景说明：需求发生了变化<br>        原来：Business A  —&gt;   Business B   —&gt;   Business C  —&gt;   完成<br>        现在：Business C  —&gt;   Business B   —&gt;   Business A  —&gt;   完成<br>        责任链模式的核心是：假如有一个处理业务的类Business，那么它的成员中则需要有一个同类型的对象（Business *nextBusiness）作为下一个响应者。</p>
+<pre><code>eg:
+//Business.h
+#import &lt;Foundation/Foundation.h&gt;
+
+@class Business;
+typedef void(^CompletionBlock)(BOOL handled);
+typedef void(^ResultBlock)(Businesst *handler, BOOL handled);
+
+@interface Business : NSObject
+
+// 下一个响应者(响应链构成的关键)
+@property (nonatomic, strong) Business *nextBusiness;
+// 响应者的处理方法
+- (void)handle:(ResultBlock)result;
+
+// 各个业务在该方法当中做实际业务处理
+- (void)handleBusiness:(CompletionBlock)completion;
+@end
+
+//Business.m
+#import &quot;Business.h&quot;
+
+@implementation Business
+
+// 责任链入口方法
+- (void)handle:(ResultBlock)result
+{
+CompletionBlock completion = ^(BOOL handled){
+    // 当前业务处理掉了，上抛结果
+    if (handled) {
+        result(self, handled);
+    }
+    else{
+        // 沿着责任链，指派给下一个业务处理
+        if (self.nextBusiness) {
+            [self.nextBusiness handle:result];
+        }
+        else{
+            // 没有业务处理, 上抛
+            result(nil, NO);
+        }
+    }
+};
+
+// 当前业务进行处理
+[self handleBusiness:completion];
+}
+
+- (void)handleBusiness:(CompletionBlock)completion
+{
+    /*
+    业务逻辑处理
+    如网络请求、本地数据查询等
+    */
+}
+</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+    
+
+    <div>
+        
+    </div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/22/Lua-函数/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1975,184 +2208,6 @@ iPhone Portrait iOS 5,6-Retina4      （640×1136） @2x
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/07/不要抱怨，努力前行/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="icewong">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="垃圾中的小钻石">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/03/07/不要抱怨，努力前行/" itemprop="url">不要抱怨，努力前行</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-07T10:54:14+08:00">
-                2018-03-07
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/闲谈/" itemprop="url" rel="index">
-                    <span itemprop="name">闲谈</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  30
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <pre><code>不要让抱怨再成为你前行的阻碍，放下这些抱怨，或许能加快前行的脚步。
-</code></pre><hr>
-
-          
-        
-      
-    </div>
-    
-    
-    
-    
-
-    <div>
-        
-    </div>
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2203,7 +2258,7 @@ iPhone Portrait iOS 5,6-Retina4      （640×1136） @2x
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2283,13 +2338,13 @@ iPhone Portrait iOS 5,6-Retina4      （640×1136） @2x
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">3.1k</span>
+    <span title="Site words total count">3.5k</span>
   
 </div>
 
 <div class="theme-info">
 <div class="powered-by"></div>
-<span class="post-count">博客全站共3.1k字</span>
+<span class="post-count">博客全站共3.5k字</span>
 </div>
 
         
