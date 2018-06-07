@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-05-23T01:51:59.000Z</updated>
+  <updated>2018-06-07T01:31:08.980Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,11 +17,67 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>面试点--KVO的本质是什么</title>
+    <link href="http://yoursite.com/2018/06/07/%E9%9D%A2%E8%AF%95%E7%82%B9-KVO%E7%9A%84%E6%9C%AC%E8%B4%A8%E6%98%AF%E4%BB%80%E4%B9%88/"/>
+    <id>http://yoursite.com/2018/06/07/面试点-KVO的本质是什么/</id>
+    <published>2018-06-07T01:18:54.000Z</published>
+    <updated>2018-06-07T01:31:08.980Z</updated>
+    
+    <content type="html"><![CDATA[<p>利用RuntimeAPI动态生成一个子类，并且让instance对象的isa指针指向这个全新的子类<br>当修改instance对象的属性时，会调用Foundation的_NSSetxxxxValueAndNotify函数</p><p>willChangeValueForKey:<br>父类原来的setter<br>didChangeValueForKey:<br>内部会触发监听器（Oberser）的监听方法（observeValueForKeyPath:ofObject:change:context:）;</p><p>如何手动出发KV0<br>通过手动调用willChangeValueForKey和didChangeValueForKey</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;利用RuntimeAPI动态生成一个子类，并且让instance对象的isa指针指向这个全新的子类&lt;br&gt;当修改instance对象的属性时，会调用Foundation的_NSSetxxxxValueAndNotify函数&lt;/p&gt;
+&lt;p&gt;willChangeValueFor
+      
+    
+    </summary>
+    
+    
+      <category term="-面试积累" scheme="http://yoursite.com/tags/%E9%9D%A2%E8%AF%95%E7%A7%AF%E7%B4%AF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>面试点-Socket是什么</title>
+    <link href="http://yoursite.com/2018/06/06/%E9%9D%A2%E8%AF%95%E7%82%B9-Socket%E6%98%AF%E4%BB%80%E4%B9%88/"/>
+    <id>http://yoursite.com/2018/06/06/面试点-Socket是什么/</id>
+    <published>2018-06-06T07:35:46.000Z</published>
+    <updated>2018-06-06T07:35:46.758Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Http与Https的区别</title>
+    <link href="http://yoursite.com/2018/05/29/Http%E4%B8%8EHttps%E7%9A%84%E5%8C%BA%E5%88%AB/"/>
+    <id>http://yoursite.com/2018/05/29/Http与Https的区别/</id>
+    <published>2018-05-29T01:51:28.000Z</published>
+    <updated>2018-05-29T05:40:23.000Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+      <category term="iOS" scheme="http://yoursite.com/categories/iOS/"/>
+    
+    
+      <category term="网络请求" scheme="http://yoursite.com/tags/%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82/"/>
+    
+  </entry>
+  
+  <entry>
     <title>iOS开发中的设计原则和常用的设计模式（一）</title>
     <link href="http://yoursite.com/2018/05/23/iOS%E5%BC%80%E5%8F%91%E4%B8%AD%E7%9A%84%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99%E5%92%8C%E5%B8%B8%E7%94%A8%E7%9A%84%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
     <id>http://yoursite.com/2018/05/23/iOS开发中的设计原则和常用的设计模式/</id>
     <published>2018-05-23T01:01:54.000Z</published>
-    <updated>2018-05-23T01:51:59.000Z</updated>
+    <updated>2018-05-23T02:40:30.000Z</updated>
     
     <content type="html"><![CDATA[<p>六大设计原则：<br>     1 单一职能原则<br>             每个类只负责一件事情<br>     2 开闭原则<br>             对修改关闭，对扩展开放<br>     3 接口隔离原则<br>           使用多个专门的协议，而不是一个庞大臃肿的协议，协议中的方法应该尽量少<br>     4 依赖设置原则<br>            抽象不应该依赖于具体实现，具体实现可以依赖于抽象<br>     5 里氏替换原则<br>            父类可以被子类无风替换，切原有功能不受任何的影响<br>     6 迪米特法则<br>           一个对象应当对其他对象有尽可能少的了解，目的就是为了 高内聚、低耦合</p><p>常用的设计模式：<br>      1 责任链模式<br>        举一个场景说明：需求发生了变化<br>        原来：Business A  —&gt;   Business B   —&gt;   Business C  —&gt;   完成<br>        现在：Business C  —&gt;   Business B   —&gt;   Business A  —&gt;   完成<br>        责任链模式的核心是：假如有一个处理业务的类Business，那么它的成员中则需要有一个同类型的对象（Business *nextBusiness）作为下一个响应者。</p><pre><code>eg://Business.h#import &lt;Foundation/Foundation.h&gt;@class Business;typedef void(^CompletionBlock)(BOOL handled);typedef void(^ResultBlock)(Businesst *handler, BOOL handled);@interface Business : NSObject// 下一个响应者(响应链构成的关键)@property (nonatomic, strong) Business *nextBusiness;// 响应者的处理方法- (void)handle:(ResultBlock)result;// 各个业务在该方法当中做实际业务处理- (void)handleBusiness:(CompletionBlock)completion;@end//Business.m#import &quot;Business.h&quot;@implementation Business// 责任链入口方法- (void)handle:(ResultBlock)result{CompletionBlock completion = ^(BOOL handled){    // 当前业务处理掉了，上抛结果    if (handled) {        result(self, handled);    }    else{        // 沿着责任链，指派给下一个业务处理        if (self.nextBusiness) {            [self.nextBusiness handle:result];        }        else{            // 没有业务处理, 上抛            result(nil, NO);        }    }};// 当前业务进行处理[self handleBusiness:completion];}- (void)handleBusiness:(CompletionBlock)completion{    /*    业务逻辑处理    如网络请求、本地数据查询等    */}</code></pre>]]></content>
     
