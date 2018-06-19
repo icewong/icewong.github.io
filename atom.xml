@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-06-07T01:31:08.980Z</updated>
+  <updated>2018-06-19T04:43:38.330Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>iOS中copy,strong,retain,weak和assign的区别</title>
+    <link href="http://yoursite.com/2018/06/19/iOS%E4%B8%ADcopy-strong-retain-weak%E5%92%8Cassign%E7%9A%84%E5%8C%BA%E5%88%AB/"/>
+    <id>http://yoursite.com/2018/06/19/iOS中copy-strong-retain-weak和assign的区别/</id>
+    <published>2018-06-19T04:37:39.000Z</published>
+    <updated>2018-06-19T04:43:38.330Z</updated>
+    
+    <content type="html"><![CDATA[<pre><code>这篇文章讲的很透彻，这里备注一下https://www.jianshu.com/p/a29a0bdd5da8</code></pre><p>一 copy，strong，weak，assign的区别。</p><pre><code>可变变量中:1)copy是重新开辟一个内存，2)strong，weak，assgin后三者不开辟内存，只是指针指向原来保存值的内存的位置，3)storng指向后会对该内存引用计数+1，而weak，assgin不会。4)weak，assgin会在引用保存值的内存引用计数为0的时候值为空，并且weak会将内存值设为nil，assign不会，assign在内存没有被重写前依旧可以输出，但一旦被重写将出现奔溃不可变变量中:因为值本身不可被改变，copy没必要开辟出一块内存存放和原来内存一模一样的值，所以内存管理系统默认都是浅拷贝。其他和可变变量一样，如weak修饰的变量同样会在内存引用计数为0时变为nil。容器本身遵守上面准则，但容器内部的每个值都是浅拷贝。综上所述，当创建property构造器创建变量value1的时候，使用copy，strong，weak，assign根据具体使用情况来决定。value1 = value2，如果你希望value1和value2的修改不会互相影响的就用用copy，反之strong,weak,assign。如果你还希望原来值为nil的时候，你的变量不为nil就用strong,反之用weak和assign。weak和assign保证了不强引用某一块内存，如delegate我们就用weak表示，就是为了防止循环引用的产生。另外，我们上面讨论的是类变量，直接创建局部变量默认是Strong修饰</code></pre><p>二 Delegate的循环引用问题</p><pre><code>a创建对象b,b中有C类对象c，所以a对b有一个引用,b对c有一个引用，a.b引用计数分别为1，当c.delegate = b的时候，实则是对b有了一个引用，如果此时c的delegate用strong修饰则会对b的值内存引用计数+1，b引用计数为2。当a的生命周期结束，随之释放对b的引用，b的引用计数变为1，导致b不能释放，b不能释放又导致b对c的引用不能释放，c引用计数还是为1，这样就造成了b和c一直留在了内存中。而要解决这个问题就是使用weak或者assign修饰delegate，这样虽然会有c仍然会对b有一个引用，但是引用是弱引用，当a生命周期结束的时候，b的引用计数变为0，b释放后随之c的引用消失，c引用计数变为0，释放</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;pre&gt;&lt;code&gt;这篇文章讲的很透彻，这里备注一下https://www.jianshu.com/p/a29a0bdd5da8
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;一 copy，strong，weak，assign的区别。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;可变变量中:
+1)copy
+      
+    
+    </summary>
+    
+    
+      <category term="iOS" scheme="http://yoursite.com/tags/iOS/"/>
+    
+  </entry>
   
   <entry>
     <title>面试点--KVO的本质是什么</title>
